@@ -24,7 +24,7 @@
 > ``source НазваниеОкружения/bin/activate`` - **для Linux и MacOS**
 
 4. Установка пакетов для сайта
-> ``pip install -r requirements.txt
+> ``pip install -r requirements.txt``
 
 ## 4. Кодим
 
