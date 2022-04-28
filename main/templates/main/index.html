@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+
+{% block content %}
+<ul class="list-articles">
+	<figure class="image">
+		<img src="http://tatuga.ru/wp3/wp-content/uploads/2022/01/29.jpg"/>
+	</figure>
+	
+	{% for p in posts %}
+	{% if p.is_published == 1 %}
+		<li><div class="article-panel">
+			<p class="first">Категория: {{p.categ}}</p>
+			<p class="last">Дата: {{p.time_update|date:"d-m-Y H:i:s"}}</p>
+		</div>
+
+<h2>{{p.title}}</h2>
+{% if p.image_one %}
+	{% if not p.content %}
+		<p><img class = "aligncenter size-full wp-image-15283" src="{{p.image_one.url}}" href="{{p.image_one.url}}"></p>
+	{% else %}
+		<p><img class = "img-article-left thumb" src="{{p.image_one.url}}" ></p>
+	{% endif %}
+{% endif %}
+
+
+<!-- {% autoescape on %} -->
+{% if p.content %}
+	{{p.content|linebreaks|truncatewords:50}}
+{% endif %}
+<!-- {% endautoescape %} -->
+
+			<div class="clear"></div>
+			<p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать пост</a></p>
+			</li>
+	{% endif %}
+	{% endfor %}
+</ul>
+{% endblock %}

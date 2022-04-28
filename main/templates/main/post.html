@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h1>{{post.title}}</h1>
+
+
+{% if post.image_one %}
+<p><img src="{{post.image_one.url}}" class="img_article-left"></p>
+{%endif%}
+
+{% if post.content %}
+{{post.content|linebreaks}}
+{%endif%}
+
+{% if post.image_two %}
+<p><img src="{{post.image_two.url}}" class="img_article-left"></p>
+{%endif%}
+
+{% if post.image_three %}
+<p><img src="{{post.image_three.url}}" class="img_article-center"></p>
+{%endif%}
+
+{% if post.image_four %}
+<p><img src="{{post.image_four.url}}" class="img_article-right"></p>
+{%endif%}
+
+{%endblock%}
